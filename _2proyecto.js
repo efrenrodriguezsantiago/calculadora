@@ -1,23 +1,31 @@
+const _private = new WeakMap()//nos esta ocultando las propiedades titulo autor precio
+
+
 document.write("-----------Bienvenido---------");
 class Book{
-    //metodo constructor
     constructor(titulo,autor,precio){
-        this._titulo = titulo;
-        this._autor = autor;
-        this._precio = precio;
+        // si tienen _ no deberia de modificarse porque son privadas
+        const propiedades = {
+        _titulo: titulo,
+        _autor: autor,
+        _precio: precio
+        }
+    
+    _private.set(this,{propiedades});//colocamos propiedaddes como privadas
     }
 
+}
+
+
+class Seller{
+    //titulo autor precio
 }
 //instancia de objetos
 const book1 = new Book('1985','george urwell',300);
 const book2 = new Book('frankeisten','M. S',200);
 
 //imprime en pantalla
-document.write(book1._titulo);
-document.write(book1._autor);
-document.write(book1._precio);
+console.log(book1._titulo);
 
-//imprime en pantalla
-document.write(book2._titulo);
-document.write(book2._autor);
-document.write(book2._precio);
+console.log(book1._precio);
+
