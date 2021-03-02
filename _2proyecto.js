@@ -14,6 +14,14 @@ class Book{
     _private.set(this,{propiedades});//colocamos propiedaddes como privadas
     }
 
+// obtiene el titulo de un libroo
+    get title(){
+        return _private.get(this).propiedades['_titulo'];
+    }
+// modifica el titulo de un libro
+    set title(newtitulo){
+        return _private.get(this).propiedades['_titulo'] = newtitulo;
+    }
 }
 
 
@@ -21,11 +29,9 @@ class Seller{
     //titulo autor precio
 }
 //instancia de objetos
-const book1 = new Book('1985','george urwell',300);
+const book1 = new Book('1984','george urwell',300);
 const book2 = new Book('frankeisten','M. S',200);
 
 //imprime en pantalla
-console.log(book1._titulo);
-
-console.log(book1._precio);
-
+book1.title = 'mil novecientos ochenta y cuatro'
+console.log(book1.title);//se pone en ingles esto
